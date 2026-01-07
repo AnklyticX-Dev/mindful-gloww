@@ -4,310 +4,176 @@ import { motion } from "framer-motion";
 
 export default function Guide() {
   return (
-    <section className="relative py-32 px-6 overflow-hidden bg-gradient-to-br from-[#9FB3A6] via-[#8CA397] to-[#9FB3A6]">
-      {/* Enhanced background glow effects */}
-      <motion.div
-        className="absolute -top-32 -left-32 w-96 h-96 bg-white/10 rounded-full blur-3xl"
-        animate={{
-          x: [0, 40, 0],
-          y: [0, -30, 0],
-          scale: [1, 1.1, 1]
-        }}
-        transition={{
-          duration: 20,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      />
-      <motion.div
-        className="absolute -bottom-32 -right-32 w-96 h-96 bg-[#F6F4EF]/10 rounded-full blur-3xl"
-        animate={{
-          x: [0, -50, 0],
-          y: [0, 40, 0],
-          scale: [1, 1.15, 1]
-        }}
-        transition={{
-          duration: 25,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 0.3
-        }}
-      />
-      <motion.div
-        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-[#E7C8B7]/5 rounded-full blur-3xl"
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.1, 0.2, 0.1]
-        }}
-        transition={{
-          duration: 15,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 0.6
-        }}
-      />
+    <section className="relative py-32 px-6 overflow-hidden bg-gradient-to-br from-[#F7F3E9] via-[#E8DFD2] to-[#D6C8B5]">
 
-      {/* Floating leaf particles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(8)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute text-[#F6F4EF]/20 text-2xl"
-            style={{
-              left: `${10 + i * 12}%`,
-              top: `${Math.random() * 100}%`
-            }}
-            animate={{
-              y: [0, -100, 0],
-              rotate: [0, 180, 360],
-              opacity: [0.1, 0.3, 0.1]
-            }}
-            transition={{
-              duration: 15 + Math.random() * 10,
-              repeat: Infinity,
-              delay: i * 0.8,
-              ease: "easeInOut"
-            }}
-          >
-            ❖
-          </motion.div>
-        ))}
+      {/* ================= BACKGROUND GRID ================= */}
+      <div className="absolute inset-0 pointer-events-none">
+        <svg className="w-full h-full opacity-[0.03]">
+          <defs>
+            <pattern
+              id="guide-grid"
+              width="60"
+              height="60"
+              patternUnits="userSpaceOnUse"
+            >
+              <path
+                d="M 60 0 L 0 0 0 60"
+                fill="none"
+                stroke="#8B7355"
+                strokeWidth="1"
+              />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#guide-grid)" />
+        </svg>
       </div>
 
-      {/* Glass morphism container */}
-      <motion.div
-        className="relative max-w-6xl mx-auto backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl p-12 shadow-2xl overflow-hidden"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        whileHover={{ scale: 1.02 }}
-      >
-        {/* Animated gradient border */}
+      {/* ================= ANIMATED BLOBS (ISOLATED) ================= */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
-          className="absolute inset-0 rounded-3xl p-[1px]"
+          className="absolute -top-32 -left-32 w-[600px] h-[600px] bg-gradient-to-br from-[#E8D0B3]/20 to-[#D4BC9A]/10 rounded-full blur-3xl"
           animate={{
-            background: [
-              "linear-gradient(45deg, #9FB3A6, #8CA397, #F6F4EF, #9FB3A6)",
-              "linear-gradient(45deg, #8CA397, #F6F4EF, #9FB3A6, #8CA397)",
-              "linear-gradient(45deg, #F6F4EF, #9FB3A6, #8CA397, #F6F4EF)"
-            ]
+            x: [0, 40, 0],
+            y: [0, -30, 0],
+            scale: [1, 1.1, 1],
           }}
           transition={{
-            duration: 10,
+            duration: 25,
             repeat: Infinity,
-            ease: "linear"
+            ease: "easeInOut",
           }}
-        >
-          <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-white/20 to-transparent" />
-        </motion.div>
+        />
 
-        <div className="relative z-10">
-          {/* Animated heading with glow */}
-          <motion.h2
-            className="text-4xl md:text-5xl font-bold mb-12 text-white relative"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className="relative inline-block">
-              Meet someone who truly understands
-              <motion.div
-                className="absolute -inset-4 bg-gradient-to-r from-white/10 to-transparent blur-xl rounded-lg"
-                animate={{
-                  opacity: [0.2, 0.4, 0.2]
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              />
-            </span>
-          </motion.h2>
+        <motion.div
+          className="absolute -bottom-32 -right-32 w-[550px] h-[550px] bg-gradient-to-tl from-[#C1A580]/15 to-[#B29773]/5 rounded-full blur-3xl"
+          animate={{
+            x: [0, -50, 0],
+            y: [0, 40, 0],
+            scale: [1, 1.15, 1],
+          }}
+          transition={{
+            duration: 30,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+      </div>
 
-          {/* Content with staggered animations */}
-          <div className="space-y-8">
-            {/* First paragraph */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2, duration: 0.7 }}
-              className="relative"
-            >
-              <p className="text-xl text-white/90 leading-relaxed">
-                <motion.span
-                  className="inline-block"
-                  whileHover={{ scale: 1.02 }}
-                >
-                  Mindful Gloww is guided by someone who has personally lived through
-                  narcissistic behaviour and emotional abuse.
-                </motion.span>
-              </p>
-              <motion.div
-                className="absolute -left-6 top-1/2 w-3 h-3 bg-white/30 rounded-full"
-                animate={{
-                  scale: [1, 1.5, 1],
-                  opacity: [0.5, 1, 0.5]
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              />
-            </motion.div>
+      {/* ================= STATIC CONTENT WRAPPER ================= */}
+      <div className="relative z-10 max-w-6xl mx-auto">
 
-            {/* Second paragraph with highlight */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4, duration: 0.8 }}
-              className="relative"
-            >
-              <div className="relative inline-block">
-                <motion.p
-                  className="text-xl text-white leading-relaxed p-6 rounded-2xl backdrop-blur-sm bg-white/5 border border-white/10"
-                  whileHover={{ scale: 1.01 }}
-                >
-                  This work comes from{" "}
-                  <motion.strong
-                    className="text-white font-bold relative"
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    lived experience
-                    <motion.span
-                      className="absolute -inset-1 bg-gradient-to-r from-[#C58A4A]/20 to-[#E7C8B7]/20 rounded-lg blur-sm"
-                      animate={{
-                        opacity: [0.2, 0.4, 0.2]
-                      }}
-                      transition={{
-                        duration: 2.5,
-                        repeat: Infinity,
-                        ease: "easeInOut"
-                      }}
-                    />
-                  </motion.strong>
-                  — understanding the confusion,
-                  the self-blame, and the slow rebuilding of trust in yourself.
-                </motion.p>
-                <motion.div
-                  className="absolute -top-2 -right-2 w-4 h-4 border border-white/30 rounded-full"
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                />
-              </div>
-            </motion.div>
+        {/* ================= OUTER GLOW ================= */}
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-br from-[#E8D0B3]/30 via-[#D4BC9A]/20 to-[#C1A580]/10 rounded-3xl blur-2xl"
+          animate={{
+            opacity: [0.3, 0.5, 0.3],
+            scale: [1, 1.02, 1],
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
 
-            {/* Third paragraph with floating words */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.6, duration: 0.8 }}
-              className="pt-8"
-            >
-              <div className="flex flex-wrap justify-center gap-4 mb-6">
-                {["compassion", "clarity", "emotional safety"].map((word, index) => (
-                  <motion.div
-                    key={word}
-                    className="relative"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.8 + index * 0.2, duration: 0.5 }}
-                    whileHover={{ scale: 1.1, y: -5 }}
-                  >
-                    <div className="px-5 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full">
-                      <span className="text-lg font-semibold text-white">
-                        {word}
-                      </span>
-                    </div>
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-white/5 to-transparent rounded-full blur-md"
-                      animate={{
-                        scale: [1, 1.2, 1],
-                        opacity: [0.2, 0.5, 0.2]
-                      }}
-                      transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        delay: index * 0.3
-                      }}
-                    />
-                  </motion.div>
-                ))}
-              </div>
+        {/* ================= MAIN CARD ================= */}
+        <div className="relative backdrop-blur-xl bg-gradient-to-br from-white/20 to-white/10 border border-white/30 rounded-3xl p-8 md:p-12 lg:p-16 shadow-2xl overflow-hidden">
 
-              <motion.p
-                className="text-xl text-white/90 leading-relaxed italic"
-                whileHover={{ scale: 1.01 }}
-              >
-                You'll be met with{" "}
-                <span className="font-bold text-white">understanding</span> that
-                can only come from having walked this path before.
-              </motion.p>
-            </motion.div>
-          </div>
-
-          {/* Decorative elements */}
+          {/* ===== Animated Gradient Border (ISOLATED) ===== */}
           <motion.div
-            className="absolute -top-8 -left-8 w-16 h-16 border-2 border-white/10 rounded-full"
-            animate={{ rotate: 360 }}
-            transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-          />
-          
-          <motion.div
-            className="absolute -bottom-6 -right-6 w-12 h-12 border border-white/20 rounded-full"
-            animate={{ rotate: -360, scale: [1, 1.2, 1] }}
-            transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
-          />
-        </div>
-      </motion.div>
-
-      {/* Bottom decorative line */}
-      <motion.div
-        className="w-48 h-1 bg-gradient-to-r from-transparent via-white/40 to-transparent mx-auto mt-16 rounded-full"
-        initial={{ width: 0, opacity: 0 }}
-        whileInView={{ width: "12rem", opacity: 1 }}
-        viewport={{ once: true }}
-        animate={{
-          scale: [1, 1.1, 1]
-        }}
-        transition={{
-          delay: 1,
-          duration: 3,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      />
-
-      {/* Additional floating particles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(15)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-white/30 rounded-full"
-            initial={{
-              x: Math.random() * 100 + "%",
-              y: Math.random() * 100 + "%"
+            className="absolute inset-0 rounded-3xl pointer-events-none"
+            style={{
+              padding: "2px",
+              background:
+                "linear-gradient(45deg, #E8D0B3, #D4BC9A, #C1A580, #B29773, #E8D0B3)",
             }}
             animate={{
-              y: [null, `-${20 + Math.random() * 40}px`, `${20 + Math.random() * 40}px`],
-              x: [null, `${10 + Math.random() * 20}px`, `-${10 + Math.random() * 20}px`],
-              opacity: [0.2, 0.6, 0.2]
+              background: [
+                "linear-gradient(45deg, #E8D0B3, #D4BC9A, #C1A580, #B29773, #E8D0B3)",
+                "linear-gradient(90deg, #B29773, #E8D0B3, #D4BC9A, #C1A580, #B29773)",
+                "linear-gradient(135deg, #C1A580, #B29773, #E8D0B3, #D4BC9A, #C1A580)",
+                "linear-gradient(45deg, #E8D0B3, #D4BC9A, #C1A580, #B29773, #E8D0B3)",
+              ],
             }}
             transition={{
-              duration: 4 + Math.random() * 3,
+              duration: 15,
               repeat: Infinity,
-              delay: i * 0.2,
-              ease: "easeInOut"
+              ease: "linear",
             }}
-          />
-        ))}
+          >
+            <div className="absolute inset-0.5 rounded-3xl bg-gradient-to-br from-[#F7F3E9]/90 to-[#E8DFD2]/90 backdrop-blur-sm" />
+          </motion.div>
+
+          {/* ================= CONTENT ================= */}
+          <div className="relative z-10 space-y-12">
+
+            {/* ===== Heading ===== */}
+            <motion.div
+              className="text-center"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <div className="text-[#8B7355] text-sm font-semibold tracking-widest uppercase mb-3">
+                Personal Guidance
+              </div>
+
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight bg-clip-text text-transparent bg-gradient-to-r from-[#5D4C3B] via-[#8B7355] to-[#A38966]">
+                Meet someone who truly understands
+              </h2>
+
+              <div className="h-1 w-32 mx-auto mt-6 bg-gradient-to-r from-[#D4BC9A] via-[#C1A580] to-[#D4BC9A] rounded-full" />
+            </motion.div>
+
+            {/* ===== Paragraphs ===== */}
+            <p className="text-lg md:text-xl text-[#5D4C3B] leading-relaxed text-center">
+              <span className="font-semibold text-[#8B7355]">Mindful Gloww</span>{" "}
+              is guided by someone who has personally lived through narcissistic
+              behaviour and emotional abuse.
+            </p>
+
+            <div className="p-6 md:p-8 rounded-2xl bg-white/30 backdrop-blur-sm border border-white/40 text-center">
+              <p className="text-lg md:text-xl text-[#5D4C3B] leading-relaxed">
+                This work comes from{" "}
+                <span className="font-bold text-[#8B7355]">
+                  lived experience
+                </span>
+                — understanding the confusion, the self-blame, and the slow
+                rebuilding of trust in yourself.
+              </p>
+            </div>
+
+            {/* ===== Pillars ===== */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {[
+                ["Compassion", "Gentle understanding without judgment"],
+                ["Clarity", "Clear insights and practical guidance"],
+                ["Emotional Safety", "A secure space for healing"],
+              ].map(([title, desc], i) => (
+                <div
+                  key={title}
+                  className="p-6 bg-white/40 rounded-2xl text-center shadow-lg"
+                >
+                  <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-[#D4BC9A] flex items-center justify-center font-bold">
+                    {i + 1}
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2 text-[#8B7355]">
+                    {title}
+                  </h3>
+                  <p className="text-[#5D4C3B]">{desc}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* ===== Final Statement ===== */}
+            <p className="text-xl md:text-2xl text-[#5D4C3B] text-center italic">
+              You'll be met with{" "}
+              <span className="font-bold text-[#8B7355]">understanding</span> that
+              can only come from having walked this path before.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );

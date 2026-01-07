@@ -3,6 +3,20 @@
 import { motion } from "framer-motion";
 
 export default function Empathy() {
+  // Pre-defined positions to avoid hydration mismatch
+  const particlePositions = Array.from({ length: 12 }, (_, i) => ({
+    x: `${(i * 8) % 100}%`,
+    y: `${(i * 10) % 100}%`,
+    delay: i * 0.2,
+    duration: 4 + (i % 3),
+    yOffset1: 20 + (i % 3) * 10,
+    yOffset2: 20 + (i % 4) * 10,
+    xOffset1: 10 + (i % 2) * 10,
+    xOffset2: 10 + (i % 3) * 10,
+  }));
+
+  const wordItems = ["heard", "understood", "supported without judgment"];
+
   return (
     <section className="relative py-24 px-6 overflow-hidden">
       {/* Background effects */}
@@ -40,23 +54,29 @@ export default function Empathy() {
 
       <div className="relative max-w-4xl mx-auto text-center z-10">
         {/* Animated heading with glow effect */}
-        <motion.h2
-          className="text-4xl md:text-5xl font-bold mb-8 text-[#1F2933] relative"
+        <motion.div
+          className="relative mb-8"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          You're not broken — and you're not alone
+          <h2 className="text-4xl md:text-5xl font-bold text-[#1F2933]">
+            You're not broken — and you're not alone
+          </h2>
           <motion.div
-            className="absolute -inset-4 bg-gradient-to-r from-[#E7C8B7]/20 to-[#9FB3A6]/20 blur-xl rounded-lg opacity-0 hover:opacity-50 transition-opacity duration-500"
+            className="absolute -inset-4 bg-gradient-to-r from-[#E7C8B7]/20 to-[#9FB3A6]/20 blur-xl rounded-lg"
             animate={{
               scale: [1, 1.05, 1],
               opacity: [0.2, 0.4, 0.2]
             }}
-            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            transition={{ 
+              duration: 3, 
+              repeat: Infinity, 
+              ease: "easeInOut" 
+            }}
           />
-        </motion.h2>
+        </motion.div>
 
         {/* Glass morphism container with animations */}
         <motion.div
@@ -85,74 +105,81 @@ export default function Empathy() {
             <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-white/40 to-transparent" />
           </motion.div>
 
-          <motion.p
-            className="text-xl md:text-2xl text-[#4A5560] leading-relaxed relative z-10"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            Healing isn't about quick advice or being told to "move on."
-            
-            <br /><br />
-            
-            <span className="inline-flex flex-wrap justify-center gap-2 md:gap-4 my-4">
-              {["heard", "understood", "supported without judgment"].map((word, index) => (
-                <motion.span
-                  key={word}
-                  className="relative inline-block"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.7 + index * 0.2, duration: 0.5 }}
-                  viewport={{ once: true }}
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <strong className="text-[#1F2933] font-bold px-3 py-1 relative z-10">
-                    {word}
-                  </strong>
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-[#E7C8B7]/30 to-[#9FB3A6]/30 rounded-full blur-md"
-                    animate={{
-                      scale: [1, 1.1, 1],
-                      opacity: [0.3, 0.6, 0.3]
-                    }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      delay: index * 0.3
-                    }}
-                  />
-                </motion.span>
-              ))}
-            </span>
-            
-            <br /><br />
-            
-            <motion.span
-              className="inline-block"
+          <div className="relative z-10">
+            <motion.div
+              className="text-xl md:text-2xl text-[#4A5560] leading-relaxed"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              transition={{ delay: 1.3, duration: 0.8 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
               viewport={{ once: true }}
             >
-              At{" "}
-              <motion.strong
-                className="text-[#1F2933] font-bold relative inline-block"
-                whileHover={{ scale: 1.05 }}
+              <p className="mb-6">Healing isn't about quick advice or being told to "move on."</p>
+              
+              <div className="flex flex-wrap justify-center gap-2 md:gap-4 my-6">
+                {wordItems.map((word, index) => (
+                  <motion.div
+                    key={word}
+                    className="relative inline-block"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.7 + index * 0.2, duration: 0.5 }}
+                    viewport={{ once: true }}
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    <div className="relative">
+                      <strong className="text-[#1F2933] font-bold px-3 py-1 relative z-10 block">
+                        {word}
+                      </strong>
+                      <motion.div
+                        className="absolute inset-0 bg-gradient-to-r from-[#E7C8B7]/30 to-[#9FB3A6]/30 rounded-full blur-md"
+                        animate={{
+                          scale: [1, 1.1, 1],
+                          opacity: [0.3, 0.6, 0.3]
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          delay: index * 0.3,
+                          ease: "easeInOut"
+                        }}
+                      />
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+              
+              <motion.div
+                className="mt-6"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ delay: 1.3, duration: 0.8 }}
+                viewport={{ once: true }}
               >
-                Mindful Gloww
-                <motion.div
-                  className="absolute -inset-2 bg-gradient-to-r from-[#C58A4A]/20 to-[#B0793F]/20 rounded-lg blur-sm"
-                  animate={{
-                    scale: [1, 1.1, 1],
-                    opacity: [0.2, 0.4, 0.2]
-                  }}
-                  transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-                />
-              </motion.strong>
-              , you're allowed to take your time.
-            </motion.span>
-          </motion.p>
+                <p>
+                  At{" "}
+                  <motion.span
+                    className="text-[#1F2933] font-bold relative inline-block"
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    Mindful Gloww
+                    <motion.div
+                      className="absolute -inset-2 bg-gradient-to-r from-[#C58A4A]/20 to-[#B0793F]/20 rounded-lg blur-sm"
+                      animate={{
+                        scale: [1, 1.1, 1],
+                        opacity: [0.2, 0.4, 0.2]
+                      }}
+                      transition={{ 
+                        duration: 2.5, 
+                        repeat: Infinity, 
+                        ease: "easeInOut" 
+                      }}
+                    />
+                  </motion.span>
+                  , you're allowed to take your time.
+                </p>
+              </motion.div>
+            </motion.div>
+          </div>
 
           {/* Animated decorative elements */}
           <motion.div
@@ -163,30 +190,38 @@ export default function Empathy() {
           
           <motion.div
             className="absolute -bottom-4 -left-4 w-8 h-8 border border-[#9FB3A6]/20 rounded-full"
-            animate={{ rotate: -360, scale: [1, 1.2, 1] }}
-            transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+            animate={{ 
+              rotate: -360, 
+              scale: [1, 1.2] 
+            }}
+            transition={{ 
+              duration: 15, 
+              repeat: Infinity, 
+              ease: "easeInOut" 
+            }}
           />
         </motion.div>
 
-        {/* Floating particles */}
+        {/* Floating particles with deterministic positions */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {[...Array(12)].map((_, i) => (
+          {particlePositions.map((particle, i) => (
             <motion.div
               key={i}
               className="absolute w-1 h-1 bg-[#E7C8B7]/40 rounded-full"
-              initial={{
-                x: Math.random() * 100 + "%",
-                y: Math.random() * 100 + "%"
+              style={{
+                left: particle.x,
+                top: particle.y,
               }}
+              initial={{ opacity: 0.2 }}
               animate={{
-                y: [null, `-${20 + Math.random() * 40}px`, `${20 + Math.random() * 40}px`],
-                x: [null, `${10 + Math.random() * 20}px`, `-${10 + Math.random() * 20}px`],
+                y: [0, `-${particle.yOffset1}px`, `${particle.yOffset2}px`],
+                x: [0, `${particle.xOffset1}px`, `-${particle.xOffset2}px`],
                 opacity: [0.2, 0.6, 0.2]
               }}
               transition={{
-                duration: 4 + Math.random() * 3,
+                duration: particle.duration,
                 repeat: Infinity,
-                delay: i * 0.2,
+                delay: particle.delay,
                 ease: "easeInOut"
               }}
             />
