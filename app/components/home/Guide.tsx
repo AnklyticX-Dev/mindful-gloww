@@ -1,23 +1,37 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function Guide() {
   return (
-    <section className="relative py-32 px-6 overflow-hidden bg-gradient-to-br from-[#F7F3E9] via-[#E8DFD2] to-[#D6C8B5]">
+    <section className="relative py-32 px-6 overflow-hidden">
 
-      {/* ================= BACKGROUND GRID ================= */}
-      <div className="absolute inset-0 pointer-events-none">
-        <svg className="w-full h-full opacity-[0.03]">
+      {/* ================= BACKGROUND IMAGE ================= */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/bg.jpeg"
+          alt="Soft watercolor background"
+          fill
+          priority
+          className="object-cover object-center"
+        />
+        {/* Paper wash */}
+        <div className="absolute inset-0 bg-[#F6F2EC]/65" />
+      </div>
+
+      {/* ================= SUBTLE GRID ================= */}
+      <div className="absolute inset-0 pointer-events-none z-10">
+        <svg className="w-full h-full opacity-[0.025]">
           <defs>
             <pattern
               id="guide-grid"
-              width="60"
-              height="60"
+              width="80"
+              height="80"
               patternUnits="userSpaceOnUse"
             >
               <path
-                d="M 60 0 L 0 0 0 60"
+                d="M 80 0 L 0 0 0 80"
                 fill="none"
                 stroke="#8B7355"
                 strokeWidth="1"
@@ -28,152 +42,130 @@ export default function Guide() {
         </svg>
       </div>
 
-      {/* ================= ANIMATED BLOBS (ISOLATED) ================= */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {/* ================= SOFT BLOBS ================= */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-10">
         <motion.div
-          className="absolute -top-32 -left-32 w-[600px] h-[600px] bg-gradient-to-br from-[#E8D0B3]/20 to-[#D4BC9A]/10 rounded-full blur-3xl"
-          animate={{
-            x: [0, 40, 0],
-            y: [0, -30, 0],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
+          className="absolute -top-40 -left-40 w-[520px] h-[520px] bg-[#E8D0B3]/20 rounded-full blur-3xl"
+          animate={{ x: [0, 30, 0], y: [0, -20, 0] }}
+          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
         />
-
         <motion.div
-          className="absolute -bottom-32 -right-32 w-[550px] h-[550px] bg-gradient-to-tl from-[#C1A580]/15 to-[#B29773]/5 rounded-full blur-3xl"
-          animate={{
-            x: [0, -50, 0],
-            y: [0, 40, 0],
-            scale: [1, 1.15, 1],
-          }}
-          transition={{
-            duration: 30,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
+          className="absolute -bottom-40 -right-40 w-[520px] h-[520px] bg-[#C1A580]/15 rounded-full blur-3xl"
+          animate={{ x: [0, -30, 0], y: [0, 20, 0] }}
+          transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }}
         />
       </div>
 
-      {/* ================= STATIC CONTENT WRAPPER ================= */}
-      <div className="relative z-10 max-w-6xl mx-auto">
+      {/* ================= CONTENT ================= */}
+      <div className="relative z-20 max-w-6xl mx-auto space-y-24">
 
-        {/* ================= OUTER GLOW ================= */}
+        {/* ===== Heading ===== */}
         <motion.div
-          className="absolute inset-0 bg-gradient-to-br from-[#E8D0B3]/30 via-[#D4BC9A]/20 to-[#C1A580]/10 rounded-3xl blur-2xl"
-          animate={{
-            opacity: [0.3, 0.5, 0.3],
-            scale: [1, 1.02, 1],
-          }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
+          className="text-center"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="text-[#8B7355] text-sm font-semibold tracking-widest uppercase mb-4">
+            Personal Guidance
+          </div>
 
-        {/* ================= MAIN CARD ================= */}
-        <div className="relative backdrop-blur-xl bg-gradient-to-br from-white/20 to-white/10 border border-white/30 rounded-3xl p-8 md:p-12 lg:p-16 shadow-2xl overflow-hidden">
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-[#3A2E1F]">
+            Meet someone who truly understands
+          </h2>
+        </motion.div>
 
-          {/* ===== Animated Gradient Border (ISOLATED) ===== */}
-          <motion.div
-            className="absolute inset-0 rounded-3xl pointer-events-none"
-            style={{
-              padding: "2px",
-              background:
-                "linear-gradient(45deg, #E8D0B3, #D4BC9A, #C1A580, #B29773, #E8D0B3)",
-            }}
-            animate={{
-              background: [
-                "linear-gradient(45deg, #E8D0B3, #D4BC9A, #C1A580, #B29773, #E8D0B3)",
-                "linear-gradient(90deg, #B29773, #E8D0B3, #D4BC9A, #C1A580, #B29773)",
-                "linear-gradient(135deg, #C1A580, #B29773, #E8D0B3, #D4BC9A, #C1A580)",
-                "linear-gradient(45deg, #E8D0B3, #D4BC9A, #C1A580, #B29773, #E8D0B3)",
-              ],
-            }}
-            transition={{
-              duration: 15,
-              repeat: Infinity,
-              ease: "linear",
-            }}
-          >
-            <div className="absolute inset-0.5 rounded-3xl bg-gradient-to-br from-[#F7F3E9]/90 to-[#E8DFD2]/90 backdrop-blur-sm" />
-          </motion.div>
+        {/* ===== ABOUT SECTION ===== */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+          {/* Image */}
+          <div className="relative max-w-md mx-auto">
+            <Image
+              src="/ruchi.jpeg"
+              alt="Founder of Mindful Gloww"
+              width={480}
+              height={620}
+              className="rounded-[28px] object-cover"
+              priority
+            />
+          </div>
 
-          {/* ================= CONTENT ================= */}
-          <div className="relative z-10 space-y-12">
-
-            {/* ===== Heading ===== */}
-            <motion.div
-              className="text-center"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <div className="text-[#8B7355] text-sm font-semibold tracking-widest uppercase mb-3">
-                Personal Guidance
-              </div>
-
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight bg-clip-text text-transparent bg-gradient-to-r from-[#5D4C3B] via-[#8B7355] to-[#A38966]">
-                Meet someone who truly understands
-              </h2>
-
-              <div className="h-1 w-32 mx-auto mt-6 bg-gradient-to-r from-[#D4BC9A] via-[#C1A580] to-[#D4BC9A] rounded-full" />
-            </motion.div>
-
-            {/* ===== Paragraphs ===== */}
-            <p className="text-lg md:text-xl text-[#5D4C3B] leading-relaxed text-center">
-              <span className="font-semibold text-[#8B7355]">Mindful Gloww</span>{" "}
-              is guided by someone who has personally lived through narcissistic
-              behaviour and emotional abuse.
+          {/* Text */}
+          <div className="text-[#5D4C3B] space-y-6 text-lg leading-relaxed">
+            <p>
+              For a long time, my life was shaped by trauma—childhood sexual
+              abuse and a marriage to a narcissist that lasted 24 years. I know
+              what it feels like to lose yourself, to silence your needs, and
+              to stay because leaving feels more terrifying than staying.
             </p>
 
-            <div className="p-6 md:p-8 rounded-2xl bg-white/30 backdrop-blur-sm border border-white/40 text-center">
-              <p className="text-lg md:text-xl text-[#5D4C3B] leading-relaxed">
-                This work comes from{" "}
-                <span className="font-bold text-[#8B7355]">
-                  lived experience
-                </span>
-                — understanding the confusion, the self-blame, and the slow
-                rebuilding of trust in yourself.
-              </p>
-            </div>
+            <p>
+              Walking away from that life was the hardest thing I have ever
+              done—but it was also the beginning of my healing.
+            </p>
 
-            {/* ===== Pillars ===== */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {[
-                ["Compassion", "Gentle understanding without judgment"],
-                ["Clarity", "Clear insights and practical guidance"],
-                ["Emotional Safety", "A secure space for healing"],
-              ].map(([title, desc], i) => (
-                <div
-                  key={title}
-                  className="p-6 bg-white/40 rounded-2xl text-center shadow-lg"
-                >
-                  <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-[#D4BC9A] flex items-center justify-center font-bold">
-                    {i + 1}
-                  </div>
-                  <h3 className="text-xl font-semibold mb-2 text-[#8B7355]">
-                    {title}
-                  </h3>
-                  <p className="text-[#5D4C3B]">{desc}</p>
-                </div>
-              ))}
-            </div>
+            <p>
+              Today, I help others who feel stuck, exhausted, and emotionally
+              overwhelmed find their way back to themselves. I believe healing
+              happens when we feel seen, believed, and safe enough to tell the
+              truth—without shame or judgment.
+            </p>
 
-            {/* ===== Final Statement ===== */}
-            <p className="text-xl md:text-2xl text-[#5D4C3B] text-center italic">
-              You'll be met with{" "}
-              <span className="font-bold text-[#8B7355]">understanding</span> that
-              can only come from having walked this path before.
+            <p>
+              My work is rooted in empathy, lived experience, and a deep
+              understanding of trauma bonds, abuse dynamics, and emotional
+              recovery. I don’t see you as a diagnosis. I see you as a human who
+              adapted to survive—and now deserves peace.
+            </p>
+
+            <p className="font-semibold text-[#3A2E1F]">
+              You don’t have to do this alone anymore.
+              <br />
+              Your story matters.
+              <br />
+              And it’s not too late to begin again.
             </p>
           </div>
         </div>
+
+        {/* ===== SUPPORTING TEXT ===== */}
+        <p className="text-lg md:text-xl text-[#5D4C3B] leading-relaxed text-center max-w-3xl mx-auto">
+          <span className="font-semibold text-[#8B7355]">Mindful Gloww</span>{" "}
+          is guided by someone who has personally lived through narcissistic
+          behaviour and emotional abuse.
+        </p>
+
+        <p className="text-lg md:text-xl text-[#5D4C3B] leading-relaxed text-center max-w-3xl mx-auto">
+          This work comes from{" "}
+          <span className="font-semibold text-[#8B7355]">lived experience</span>
+          — understanding the confusion, the self-blame, and the slow rebuilding
+          of trust in yourself.
+        </p>
+
+        {/* ===== PILLARS (PLAIN TEXT, NO CARDS) ===== */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+          {[
+            ["Compassion", "Gentle understanding without judgment"],
+            ["Clarity", "Clear insights and practical guidance"],
+            ["Emotional Safety", "A secure space for healing"],
+          ].map(([title, desc]) => (
+            <div key={title} className="space-y-3">
+              <h3 className="text-xl font-semibold text-[#8B7355]">
+                {title}
+              </h3>
+              <p className="text-[#5D4C3B]">
+                {desc}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* ===== FINAL STATEMENT ===== */}
+        <p className="text-xl md:text-2xl text-[#5D4C3B] text-center italic max-w-4xl mx-auto">
+          You'll be met with{" "}
+          <span className="font-semibold text-[#8B7355]">understanding</span>{" "}
+          that can only come from having walked this path before.
+        </p>
       </div>
     </section>
   );

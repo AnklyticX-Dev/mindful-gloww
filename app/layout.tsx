@@ -23,16 +23,21 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#F8F7F5] text-[#2F2F2F]`}
       >
         <Navbar />
-        {children}
+
+        {/* MAIN CONTENT WRAPPER (prevents margin-collapse into footer) */}
+        <main className="relative overflow-hidden">
+          {children}
+        </main>
+
         <Footer />
       </body>
     </html>
