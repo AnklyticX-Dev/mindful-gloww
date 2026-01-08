@@ -6,23 +6,34 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative w-full min-h-screen overflow-hidden bg-[#F8F7F5]"
+      className="relative w-full min-h-screen overflow-hidden"
+      aria-labelledby="hero-heading"
+      role="banner"
+      aria-label="Hero section: Find clarity and feel safe again"
     >
       {/* ================= BACKGROUND IMAGE ================= */}
-  {/* ================= BACKGROUND IMAGE ================= */}
-<div className="absolute inset-0 z-0">
-  <Image
-    src="/bg.png"
-    alt="Mindful Gloww background"
-    fill
-    priority
-    className="object-cover object-left"
-  />
+      <div 
+        className="absolute inset-0 z-0"
+        aria-hidden="true"
+        role="presentation"
+      >
+        <Image
+          src="/bg.png"
+          alt="Soft textured background with gentle patterns for Mindful Gloww"
+          fill
+          priority
+          className="object-cover object-left"
+          aria-hidden="true"
+          sizes="100vw"
+        />
 
-  {/* Directional overlay — left clear, right faded */}
-  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/60 " />
-</div>
-
+        {/* Soft contrast wash (same palette, improves text clarity) */}
+        <div 
+          className="absolute inset-0 bg-[#F8F7F5]/60 md:bg-[#F8F7F5]/40"
+          aria-hidden="true"
+          role="presentation"
+        />
+      </div>
 
       {/* ================= HERO CONTENT ================= */}
       <div
@@ -34,15 +45,16 @@ export default function Hero() {
           pt-[var(--navbar-height-mobile)]
           lg:pt-[var(--navbar-height-desktop)]
           min-h-screen
-
-          /* 🔽 placement tuning (ONLY CHANGE) */
           justify-start
           translate-y-[12vh]
           lg:translate-y-[14vh]
           lg:pl-[10%]
         "
+        role="main"
       >
+        {/* ================= MAIN HEADLINE ================= */}
         <motion.h1
+          id="hero-heading"
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -53,11 +65,21 @@ export default function Hero() {
             leading-tight
             mb-6
             max-w-[720px]
+            font-semibold
+            drop-shadow-[0_2px_4px_rgba(179,106,76,0.35)]
+            [text-shadow:
+              0_0_14px_rgba(179,106,76,0.35),
+              0_0_28px_rgba(179,106,76,0.22),
+              0_0_56px_rgba(179,106,76,0.14)
+            ]
           "
+          tabIndex={0}
+          aria-label="Main message: Find clarity. Feel safe again."
         >
           Find clarity. Feel safe again.
         </motion.h1>
 
+        {/* ================= SUB HEADLINE ================= */}
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -68,11 +90,19 @@ export default function Hero() {
             italic
             mb-6
             max-w-[520px]
+            drop-shadow-[0_1px_3px_rgba(179,106,76,0.25)]
+            [text-shadow:
+              0_0_10px_rgba(179,106,76,0.22),
+              0_0_20px_rgba(179,106,76,0.14)
+            ]
           "
+          tabIndex={0}
+          aria-label="Invitation: Come back to yourself."
         >
           Come back to yourself.
         </motion.p>
 
+        {/* ================= SUPPORTING COPY ================= */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -83,71 +113,114 @@ export default function Hero() {
             max-w-[640px]
             mb-10
             leading-relaxed
+            drop-shadow-[0_1px_3px_rgba(255,255,255,0.6)]
           "
+          tabIndex={0}
         >
           If you're feeling emotionally drained, confused, or stuck,
-          Mindful Gloww is here to guide you towards healing.
+          <span className="sr-only">Mindful Gloww</span>
+          <span aria-hidden="true"> Mindful Gloww </span>
+          is here to guide you towards healing.
         </motion.p>
 
-        <motion.a
-          href="#contact"
-          whileHover={{ scale: 1.04 }}
-          whileTap={{ scale: 0.96 }}
-          className="
-            inline-block
-            bg-[#B36A4C]
-            text-white
-            px-10 py-4
-            rounded-lg
-            font-medium
-            shadow-md
-            hover:bg-[#9E5C41]
-            transition
-          "
+        {/* ================= CTA BUTTON ================= */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.45 }}
         >
-          Book a Confidential Consultation
-        </motion.a>
+          <motion.a
+            href="#contact"
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.96 }}
+            className="
+              inline-block
+              bg-[#B36A4C]
+              text-white
+              px-10 py-4
+              rounded-lg
+              font-medium
+              shadow-lg
+              hover:bg-[#9E5C41]
+              transition
+              drop-shadow-[0_6px_18px_rgba(179,106,76,0.45)]
+              hover:drop-shadow-[0_10px_30px_rgba(179,106,76,0.55)]
+              focus:outline-none focus:ring-2 focus:ring-[#B36A4C] focus:ring-offset-4
+              focus:ring-offset-[#F8F7F5]
+            "
+            aria-label="Book a Confidential Consultation. Opens contact section on same page."
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+          >
+            Book a Confidential Consultation
+          </motion.a>
+          <div className="sr-only" aria-live="polite">
+            Press Enter or Space to navigate to the contact section.
+          </div>
+        </motion.div>
+
+        {/* ================= HIDDEN CONTEXT FOR SCREEN READERS ================= */}
+        <div className="sr-only" aria-live="polite">
+          <p>
+            Welcome to Mindful Gloww. This is a safe space for healing from emotional exhaustion,
+            confusion, and trauma. We provide compassionate guidance to help you find clarity
+            and feel safe again.
+          </p>
+        </div>
       </div>
 
-      {/* ================= WATER COLOR WAVES ================= */}
-      <div className="absolute bottom-0 left-0 w-full z-20 pointer-events-none">
-        {/* Wave 1 */}
+      {/* ================= BOTTOM WAVE (CONSISTENT SYSTEM) ================= */}
+      <div 
+        className="absolute bottom-0 left-0 w-full z-20 pointer-events-none"
+        aria-hidden="true"
+        role="presentation"
+      >
         <svg
-          className="w-[200%] h-32"
-          viewBox="0 0 1440 320"
+          viewBox="0 0 1440 80"
           preserveAspectRatio="none"
+          className="w-full h-[80px]"
+          aria-hidden="true"
+          focusable="false"
+          role="presentation"
         >
+          <title id="bottom-wave-title">Decorative bottom wave transition</title>
           <path
-            fill="#F4EDE2"
+            fill="#F8F7F5"
             d="
-              M0,224
-              C120,210 240,180 360,176
-              C480,172 600,196 720,208
-              C840,220 960,220 1080,208
-              C1200,196 1320,172 1440,176
-              L1440,320 L0,320 Z
+              M0,52
+              C120,70 240,78 360,74
+              C480,70 600,52 720,46
+              C840,40 960,46 1080,58
+              C1200,70 1320,78 1440,74
+              L1440,80 L0,80 Z
             "
           />
         </svg>
-
-        {/* Wave 2 */}
-        <svg
-          className="absolute bottom-0 left-0 w-[200%] h-40 opacity-60"
-          viewBox="0 0 1440 320"
-          preserveAspectRatio="none"
-        >
-          <path
-            fill="#EFE6D8"
-            d="
-              M0,256
-              C180,230 360,210 540,216
-              C720,222 900,248 1080,246
-              C1260,244 1380,224 1440,216
-              L1440,320 L0,320 Z
-            "
-          />
-        </svg>
       </div>
+
+      {/* ================= SKIP TO MAIN CONTENT LINK (FOR KEYBOARD USERS) ================= */}
+      <a
+        href="#main-content"
+        className="
+          sr-only
+          focus:not-sr-only
+          absolute top-4 left-4
+          bg-[#B36A4C]
+          text-white
+          px-4 py-2
+          rounded
+          z-50
+          focus:outline-none focus:ring-2 focus:ring-[#B36A4C] focus:ring-offset-2
+        "
+      >
+        Skip to main content
+      </a>
     </section>
   );
 }

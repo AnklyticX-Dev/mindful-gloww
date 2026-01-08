@@ -1,2 +1,29 @@
 @import "tailwindcss";
 
+@keyframes softGlow {
+  0% {
+    filter: drop-shadow(0 0 10px rgba(179,106,76,0.25));
+  }
+  50% {
+    filter: drop-shadow(0 0 18px rgba(179,106,76,0.45));
+  }
+  100% {
+    filter: drop-shadow(0 0 10px rgba(179,106,76,0.25));
+  }
+}
+
+.animate-softGlow {
+  animation: softGlow 5s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    text-shadow: 0 0 20px rgba(139, 115, 85, 0.3),
+                 0 0 40px rgba(139, 115, 85, 0.15);
+  }
+  50% {
+    text-shadow: 0 0 25px rgba(139, 115, 85, 0.4),
+                 0 0 50px rgba(139, 115, 85, 0.2),
+                 0 0 60px rgba(139, 115, 85, 0.1);
+  }
+}
