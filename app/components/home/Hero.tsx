@@ -28,11 +28,7 @@ export default function Hero() {
         />
 
         {/* Soft contrast wash (same palette, improves text clarity) */}
-        <div 
-          className="absolute inset-0 bg-[#F8F7F5]/60 md:bg-[#F8F7F5]/40"
-          aria-hidden="true"
-          role="presentation"
-        />
+    
       </div>
 
       {/* ================= HERO CONTENT ================= */}
