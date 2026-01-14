@@ -94,7 +94,7 @@ export default function CTA() {
   className="
     relative z-10
     font-serif
-    text-6xl sm:text-5xl
+    lg:text-6xl sm:text-5xl
     drop-shadow-[0_2px_4px_rgba(139,115,85,0.25)]
     [text-shadow:
       0_0_10px_rgba(139,115,85,0.25),

@@ -45,7 +45,7 @@ export default function Questionnaire() {
 <h4
   className="
     font-serif
-    text-6xl sm:text-5xl
+    lg:text-6xl sm:text-5xl
     font-semibold
     text-[#2C2416]
     mb-4

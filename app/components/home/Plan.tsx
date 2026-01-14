@@ -107,7 +107,7 @@ export default function Plan() {
   id="process-heading"
   className="
     font-serif
-    text-6xl sm:text-5xl
+    lg:text-6xl sm:text-5xl
     text-[#3A2E1F]
     mb-4
     font-semibold

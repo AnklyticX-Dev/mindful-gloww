@@ -142,7 +142,7 @@ export default function Guide() {
   id="guide-heading"
   className="
     font-serif
-    text-6xl sm:text-5xl
+    lg:text-6xl sm:text-5xl
     text-[#3A2E1F]
     font-semibold
     drop-shadow-[0_2px_4px_rgba(139,115,85,0.25)]

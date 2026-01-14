@@ -132,7 +132,7 @@ export default function Specialisation() {
   id="specialisations-heading"
   className="
     font-serif
-    text-6xl sm:text-5xl
+    lg:text-6xl sm:text-5xl
     text-[#3A2E1F]
     whitespace-nowrap
     font-semibold

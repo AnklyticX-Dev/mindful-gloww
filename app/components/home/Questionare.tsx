@@ -155,7 +155,7 @@ export default function Questionnaire() {
           <h4
             id="questionnaire-heading"
             className="
-    text-6xl sm:text-5xl
+    lg:text-6xl sm:text-5xl
     font-serif
     text-[#2C2416]
     mb-6
