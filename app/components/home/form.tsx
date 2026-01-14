@@ -42,9 +42,26 @@ export default function Questionnaire() {
       <div className="relative z-10 max-w-3xl mx-auto px-6 py-32">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-serif text-[#2C2416] mb-4">
-            Mental State Evaluation
-          </h2>
+<h4
+  className="
+    font-serif
+    text-6xl sm:text-5xl
+    font-semibold
+    text-[#2C2416]
+    mb-4
+    drop-shadow-[0_2px_4px_rgba(139,115,85,0.25)]
+    [text-shadow:
+      0_0_10px_rgba(139,115,85,0.25),
+      0_0_22px_rgba(139,115,85,0.18),
+      0_0_44px_rgba(139,115,85,0.12)
+    ]
+  "
+>
+  Mental State Evaluation
+</h4>
+
+
+
           <p className="text-[#5D4C3B] text-lg">
             Take your time. There are no right or wrong answers.
           </p>
@@ -64,7 +81,11 @@ export default function Questionnaire() {
                 title="About You"
                 subtitle="Basic details to help me understand you better"
               >
-                <Input label="Name (optional)" name="name" onChange={handleChange} />
+                <Input
+                  label="Name (optional)"
+                  name="name"
+                  onChange={handleChange}
+                />
                 <Input label="Age" name="age" onChange={handleChange} />
                 <Select
                   label="Gender"
@@ -98,9 +119,21 @@ export default function Questionnaire() {
                 title="Emotions & Mood"
                 subtitle="Your emotional responses and patterns"
               >
-                <EmotionSlider label="Irritation" name="irritation" onChange={handleChange} />
-                <EmotionSlider label="Anger outbursts" name="anger" onChange={handleChange} />
-                <EmotionSlider label="Mood swings" name="mood" onChange={handleChange} />
+                <EmotionSlider
+                  label="Irritation"
+                  name="irritation"
+                  onChange={handleChange}
+                />
+                <EmotionSlider
+                  label="Anger outbursts"
+                  name="anger"
+                  onChange={handleChange}
+                />
+                <EmotionSlider
+                  label="Mood swings"
+                  name="mood"
+                  onChange={handleChange}
+                />
               </Section>
             )}
 
@@ -109,9 +142,21 @@ export default function Questionnaire() {
                 title="Anxiety & Body"
                 subtitle="Physical or anxious responses you may notice"
               >
-                <YesNo label="Sleep disturbance" name="sleep" onChange={handleChange} />
-                <YesNo label="Anxiety symptoms" name="anxiety" onChange={handleChange} />
-                <YesNo label="Panic attacks" name="panic" onChange={handleChange} />
+                <YesNo
+                  label="Sleep disturbance"
+                  name="sleep"
+                  onChange={handleChange}
+                />
+                <YesNo
+                  label="Anxiety symptoms"
+                  name="anxiety"
+                  onChange={handleChange}
+                />
+                <YesNo
+                  label="Panic attacks"
+                  name="panic"
+                  onChange={handleChange}
+                />
               </Section>
             )}
 
@@ -144,11 +189,7 @@ export default function Questionnaire() {
             {/* Navigation */}
             <div className="flex justify-between pt-8">
               {step > 1 && (
-                <button
-                  type="button"
-                  onClick={prev}
-                  className="text-[#8B7355]"
-                >
+                <button type="button" onClick={prev} className="text-[#8B7355]">
                   ← Back
                 </button>
               )}
@@ -191,11 +232,26 @@ function Section({
   return (
     <div className="bg-[#F6F2EC]/80 border border-[#D6C8B5] rounded-xl p-8 space-y-8">
       <div>
-        <h3 className="text-2xl font-serif text-[#2C2416]">{title}</h3>
-        {subtitle && (
-          <p className="text-sm text-[#8B7355] mt-1">{subtitle}</p>
-        )}
+        {/* ✅ H4 — correct hierarchy, same size */}
+        <h4
+          className="
+    font-serif
+    text-2xl
+    font-semibold
+    text-[#2C2416]
+    drop-shadow-[0_2px_4px_rgba(139,115,85,0.25)]
+    [text-shadow:
+      0_0_8px_rgba(139,115,85,0.22),
+      0_0_18px_rgba(139,115,85,0.14)
+    ]
+  "
+        >
+          {title}
+        </h4>
+
+        {subtitle && <p className="text-sm text-[#8B7355] mt-1">{subtitle}</p>}
       </div>
+
       {children}
     </div>
   );

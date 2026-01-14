@@ -30,44 +30,47 @@ export default function Questionnaire() {
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
-    
+
     // Email validation if provided
     if (form.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
       newErrors.email = "Please enter a valid email address";
     }
-    
+
     return newErrors;
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     const validationErrors = validateForm();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
-      
+
       // Focus on first error field
       const firstError = Object.keys(validationErrors)[0];
-      const errorElement = document.querySelector(`[name="${firstError}"]`) as HTMLElement;
+      const errorElement = document.querySelector(
+        `[name="${firstError}"]`
+      ) as HTMLElement;
       if (errorElement) {
         errorElement.focus();
       }
-      
+
       return;
     }
-    
+
     setIsSubmitting(true);
-    
+
     // Simulate API call
     setTimeout(() => {
       console.log("Form submitted:", form);
       setIsSubmitted(true);
       setIsSubmitting(false);
-      
+
       // Announce success to screen readers
-      const announcement = document.getElementById('form-announcement');
+      const announcement = document.getElementById("form-announcement");
       if (announcement) {
-        announcement.textContent = "Form submitted successfully. Thank you for sharing.";
+        announcement.textContent =
+          "Form submitted successfully. Thank you for sharing.";
       }
     }, 1500);
   };
@@ -81,7 +84,7 @@ export default function Questionnaire() {
       aria-label="Questionnaire form section"
     >
       {/* ================= TOP WAVE ================= */}
-      <div 
+      <div
         className="absolute top-0 left-0 w-full z-20 pointer-events-none"
         aria-hidden="true"
         role="presentation"
@@ -110,7 +113,7 @@ export default function Questionnaire() {
       </div>
 
       {/* ================= BACKGROUND ================= */}
-      <div 
+      <div
         className="absolute inset-0 z-0"
         aria-hidden="true"
         role="presentation"
@@ -126,7 +129,7 @@ export default function Questionnaire() {
         />
 
         {/* Soft contrast wash */}
-        <div 
+        <div
           className="absolute inset-0 bg-[#F6F2EC]/65 md:bg-[#F6F2EC]/45"
           aria-hidden="true"
           role="presentation"
@@ -136,37 +139,39 @@ export default function Questionnaire() {
       {/* ================= CONTENT ================= */}
       <div className="relative z-10 max-w-3xl mx-auto px-6 py-40">
         {/* Live announcement for screen readers */}
-        <div 
+        <div
           id="form-announcement"
           className="sr-only"
           aria-live="polite"
           aria-atomic="true"
         >
-          {isSubmitted ? "Form submitted successfully" : "Form ready for completion"}
+          {isSubmitted
+            ? "Form submitted successfully"
+            : "Form ready for completion"}
         </div>
 
         {/* Intro */}
         <div className="text-center mb-20">
-          <h2
+          <h4
             id="questionnaire-heading"
             className="
-              text-4xl md:text-5xl
-              font-serif
-              text-[#2C2416]
-              mb-6
-              font-semibold
-              drop-shadow-[0_2px_4px_rgba(139,115,85,0.25)]
-              [text-shadow:
-                0_0_10px_rgba(139,115,85,0.22),
-                0_0_22px_rgba(139,115,85,0.14)
-              ]
-            "
+    text-6xl sm:text-5xl
+    font-serif
+    text-[#2C2416]
+    mb-6
+    font-semibold
+    drop-shadow-[0_2px_4px_rgba(139,115,85,0.25)]
+    [text-shadow:
+      0_0_10px_rgba(139,115,85,0.22),
+      0_0_22px_rgba(139,115,85,0.14)
+    ]
+  "
             tabIndex={0}
           >
             Before we begin
-          </h2>
+          </h4>
 
-          <p 
+          <p
             className="text-lg text-[#5D4C3B] leading-relaxed drop-shadow-[0_1px_3px_rgba(255,255,255,0.55)]"
             tabIndex={0}
           >
@@ -180,7 +185,7 @@ export default function Questionnaire() {
 
         {/* Success Message */}
         {isSubmitted ? (
-          <div 
+          <div
             className="text-center p-8 bg-[#E8DFD2]/50 rounded-xl border border-[#D6C8B5]"
             role="alert"
             aria-live="polite"
@@ -197,7 +202,7 @@ export default function Questionnaire() {
           </div>
         ) : (
           /* ================= FORM ================= */
-          <form 
+          <form
             className="space-y-16"
             onSubmit={handleSubmit}
             noValidate
@@ -205,7 +210,7 @@ export default function Questionnaire() {
           >
             {/* Name */}
             <div>
-              <label 
+              <label
                 htmlFor="name"
                 className="block text-sm mb-3 text-[#5D4C3B] font-medium"
               >
@@ -246,7 +251,7 @@ export default function Questionnaire() {
 
             {/* Email */}
             <div>
-              <label 
+              <label
                 htmlFor="email"
                 className="block text-sm mb-3 text-[#5D4C3B] font-medium"
               >
@@ -276,9 +281,13 @@ export default function Questionnaire() {
                   transition-colors
                   focus:ring-2 focus:ring-[#B36A4C] focus:ring-opacity-30
                   rounded-t
-                  ${errors.email ? 'border-red-300' : ''}
+                  ${errors.email ? "border-red-300" : ""}
                 `}
-                aria-describedby={errors.email ? "email-error email-description" : "email-description"}
+                aria-describedby={
+                  errors.email
+                    ? "email-error email-description"
+                    : "email-description"
+                }
                 aria-invalid={errors.email ? "true" : "false"}
                 aria-required="true"
                 required
@@ -287,7 +296,7 @@ export default function Questionnaire() {
                 Required field for contact purposes
               </div>
               {errors.email && (
-                <p 
+                <p
                   id="email-error"
                   className="text-sm text-red-500 mt-2"
                   role="alert"
@@ -300,7 +309,7 @@ export default function Questionnaire() {
 
             {/* Support type */}
             <div>
-              <label 
+              <label
                 htmlFor="support"
                 className="block text-sm mb-3 text-[#5D4C3B] font-medium"
               >
@@ -339,9 +348,7 @@ export default function Questionnaire() {
                 <option value="self-worth">
                   Rebuilding self-worth and confidence
                 </option>
-                <option value="clarity">
-                  Clarity and emotional support
-                </option>
+                <option value="clarity">Clarity and emotional support</option>
               </select>
               <div id="support-description" className="sr-only">
                 Select the primary reason you are seeking support
@@ -350,7 +357,7 @@ export default function Questionnaire() {
 
             {/* Notes */}
             <div>
-              <label 
+              <label
                 htmlFor="notes"
                 className="block text-sm mb-3 text-[#5D4C3B] font-medium"
               >
@@ -390,7 +397,7 @@ export default function Questionnaire() {
             </div>
 
             {/* Reassurance */}
-            <p 
+            <p
               className="text-center text-sm text-[#8B7355] italic pt-6"
               tabIndex={0}
               aria-label="Reassurance message"
@@ -421,7 +428,9 @@ export default function Questionnaire() {
                   disabled:cursor-not-allowed
                   min-w-[180px]
                 `}
-                aria-label={isSubmitting ? "Submitting form..." : "Submit questionnaire"}
+                aria-label={
+                  isSubmitting ? "Submitting form..." : "Submit questionnaire"
+                }
               >
                 {isSubmitting ? (
                   <span className="flex items-center justify-center gap-2">
@@ -436,7 +445,9 @@ export default function Questionnaire() {
 
             {/* Form instructions for screen readers */}
             <div className="sr-only">
-              <p>This form has 4 fields. Press Tab to navigate between fields.</p>
+              <p>
+                This form has 4 fields. Press Tab to navigate between fields.
+              </p>
               <p>The email field is required for contact purposes.</p>
               <p>All other fields are optional.</p>
             </div>
@@ -445,7 +456,7 @@ export default function Questionnaire() {
       </div>
 
       {/* ================= BOTTOM WAVE ================= */}
-      <div 
+      <div
         className="absolute bottom-0 left-0 w-full z-20 pointer-events-none"
         aria-hidden="true"
         role="presentation"

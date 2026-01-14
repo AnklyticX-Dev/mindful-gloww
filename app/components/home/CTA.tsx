@@ -77,7 +77,7 @@ export default function CTA() {
           id="cta-heading"
           className="
             font-serif
-            text-3xl sm:text-4xl md:text-5xl
+             text-3xl sm:text-4xl
             font-semibold
             text-[#3A2E1F]
             mb-8
@@ -90,19 +90,22 @@ export default function CTA() {
           tabIndex={0}
           aria-label="Message: You don't have to do this alone"
         >
-          <span
-            className="
-              relative z-10
-              drop-shadow-[0_2px_4px_rgba(139,115,85,0.25)]
-              [text-shadow:
-                0_0_10px_rgba(139,115,85,0.25),
-                0_0_24px_rgba(139,115,85,0.18),
-                0_0_48px_rgba(139,115,85,0.12)
-              ]
-            "
-          >
-            You don&apos;t have to do this alone
-          </span>
+         <span
+  className="
+    relative z-10
+    font-serif
+    text-6xl sm:text-5xl
+    drop-shadow-[0_2px_4px_rgba(139,115,85,0.25)]
+    [text-shadow:
+      0_0_10px_rgba(139,115,85,0.25),
+      0_0_24px_rgba(139,115,85,0.18),
+      0_0_48px_rgba(139,115,85,0.12)
+    ]
+  "
+>
+  You don&apos;t have to do this alone
+</span>
+
         </motion.h2>
 
         {/* ================= TEXT CONTENT ================= */}
@@ -143,7 +146,7 @@ export default function CTA() {
             tabIndex={0}
             aria-label="Important: Your healing matters and it can begin today"
           >
-            Your healing matters — and it can begin today.
+            Your healing matters - and it can begin today.
           </p>
         </motion.div>
 

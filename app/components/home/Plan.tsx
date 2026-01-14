@@ -103,24 +103,25 @@ export default function Plan() {
           role="banner"
           aria-label="Section introduction"
         >
-          <h2
-            id="process-heading"
-            className="
-              font-serif
-              text-4xl md:text-5xl
-              text-[#3A2E1F]
-              mb-4
-              font-semibold
-              drop-shadow-[0_2px_4px_rgba(139,115,85,0.25)]
-              [text-shadow:
-                0_0_10px_rgba(139,115,85,0.22),
-                0_0_22px_rgba(139,115,85,0.14)
-              ]
-            "
-            tabIndex={0}
-          >
-            How it works
-          </h2>
+        <h4
+  id="process-heading"
+  className="
+    font-serif
+    text-6xl sm:text-5xl
+    text-[#3A2E1F]
+    mb-4
+    font-semibold
+    drop-shadow-[0_2px_4px_rgba(139,115,85,0.25)]
+    [text-shadow:
+      0_0_10px_rgba(139,115,85,0.22),
+      0_0_22px_rgba(139,115,85,0.14)
+    ]
+  "
+  tabIndex={0}
+>
+  How it works
+</h4>
+
           <p 
             className="text-lg text-[#6B5A44] drop-shadow-[0_1px_3px_rgba(255,255,255,0.55)]"
             tabIndex={0}

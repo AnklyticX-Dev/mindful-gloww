@@ -9,26 +9,26 @@ export default function Hero() {
       className="relative w-full min-h-screen overflow-hidden"
       aria-labelledby="hero-heading"
       role="banner"
-      aria-label="Hero section: Find clarity and feel safe again"
     >
       {/* ================= BACKGROUND IMAGE ================= */}
-      <div 
+      <div
         className="absolute inset-0 z-0"
         aria-hidden="true"
-        role="presentation"
       >
         <Image
           src="/bg.png"
-          alt="Soft textured background with gentle patterns for Mindful Gloww"
+          alt=""
           fill
           priority
           className="object-cover object-left"
-          aria-hidden="true"
           sizes="100vw"
         />
 
-        {/* Soft contrast wash (same palette, improves text clarity) */}
-    
+        {/* MOBILE ONLY contrast overlay */}
+        <div
+          className="absolute inset-0 bg-[#F8F7F5]/65 md:hidden"
+          aria-hidden="true"
+        />
       </div>
 
       {/* ================= HERO CONTENT ================= */}
@@ -46,9 +46,8 @@ export default function Hero() {
           lg:translate-y-[14vh]
           lg:pl-[10%]
         "
-        role="main"
       >
-        {/* ================= MAIN HEADLINE ================= */}
+        {/* ================= MAIN HEADING (ONLY H1) ================= */}
         <motion.h1
           id="hero-heading"
           initial={{ opacity: 0, y: 18 }}
@@ -69,13 +68,11 @@ export default function Hero() {
               0_0_56px_rgba(179,106,76,0.14)
             ]
           "
-          tabIndex={0}
-          aria-label="Main message: Find clarity. Feel safe again."
         >
           Find clarity. Feel safe again.
         </motion.h1>
 
-        {/* ================= SUB HEADLINE ================= */}
+        {/* ================= SUB HEADING ================= */}
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -87,13 +84,7 @@ export default function Hero() {
             mb-6
             max-w-[520px]
             drop-shadow-[0_1px_3px_rgba(179,106,76,0.25)]
-            [text-shadow:
-              0_0_10px_rgba(179,106,76,0.22),
-              0_0_20px_rgba(179,106,76,0.14)
-            ]
           "
-          tabIndex={0}
-          aria-label="Invitation: Come back to yourself."
         >
           Come back to yourself.
         </motion.p>
@@ -109,17 +100,14 @@ export default function Hero() {
             max-w-[640px]
             mb-10
             leading-relaxed
-            drop-shadow-[0_1px_3px_rgba(255,255,255,0.6)]
           "
-          tabIndex={0}
         >
           If you're feeling emotionally drained, confused, or stuck,
-          <span className="sr-only">Mindful Gloww</span>
-          <span aria-hidden="true"> Mindful Gloww </span>
+          <span className="sr-only"> Mindful Gloww </span>
           is here to guide you towards healing.
         </motion.p>
 
-        {/* ================= CTA BUTTON ================= */}
+        {/* ================= CTA ================= */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -139,53 +127,35 @@ export default function Hero() {
               shadow-lg
               hover:bg-[#9E5C41]
               transition
-              drop-shadow-[0_6px_18px_rgba(179,106,76,0.45)]
-              hover:drop-shadow-[0_10px_30px_rgba(179,106,76,0.55)]
-              focus:outline-none focus:ring-2 focus:ring-[#B36A4C] focus:ring-offset-4
+              focus:outline-none
+              focus:ring-2
+              focus:ring-[#B36A4C]
+              focus:ring-offset-4
               focus:ring-offset-[#F8F7F5]
             "
-            aria-label="Book a Confidential Consultation. Opens contact section on same page."
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-              }
-            }}
           >
             Book a Confidential Consultation
           </motion.a>
-          <div className="sr-only" aria-live="polite">
-            Press Enter or Space to navigate to the contact section.
-          </div>
         </motion.div>
 
-        {/* ================= HIDDEN CONTEXT FOR SCREEN READERS ================= */}
+        {/* ================= SCREEN READER CONTEXT ================= */}
         <div className="sr-only" aria-live="polite">
-          <p>
-            Welcome to Mindful Gloww. This is a safe space for healing from emotional exhaustion,
-            confusion, and trauma. We provide compassionate guidance to help you find clarity
-            and feel safe again.
-          </p>
+          Welcome to Mindful Gloww. This is a safe space for emotional healing,
+          clarity, and trauma-informed support.
         </div>
       </div>
 
-      {/* ================= BOTTOM WAVE (CONSISTENT SYSTEM) ================= */}
-      <div 
+      {/* ================= DECORATIVE WAVE ================= */}
+      <div
         className="absolute bottom-0 left-0 w-full z-20 pointer-events-none"
         aria-hidden="true"
-        role="presentation"
       >
         <svg
           viewBox="0 0 1440 80"
           preserveAspectRatio="none"
           className="w-full h-[80px]"
-          aria-hidden="true"
           focusable="false"
-          role="presentation"
         >
-          <title id="bottom-wave-title">Decorative bottom wave transition</title>
           <path
             fill="#F8F7F5"
             d="
@@ -200,7 +170,7 @@ export default function Hero() {
         </svg>
       </div>
 
-      {/* ================= SKIP TO MAIN CONTENT LINK (FOR KEYBOARD USERS) ================= */}
+      {/* ================= SKIP LINK ================= */}
       <a
         href="#main-content"
         className="
@@ -212,7 +182,6 @@ export default function Hero() {
           px-4 py-2
           rounded
           z-50
-          focus:outline-none focus:ring-2 focus:ring-[#B36A4C] focus:ring-offset-2
         "
       >
         Skip to main content

@@ -138,25 +138,26 @@ export default function Guide() {
             Personal Guidance
           </div>
 
-          <h2
-            id="guide-heading"
-            className="
-              font-serif
-              text-4xl md:text-5xl lg:text-6xl
-              text-[#3A2E1F]
-              font-semibold
-              drop-shadow-[0_2px_4px_rgba(139,115,85,0.25)]
-              [text-shadow:
-                0_0_12px_rgba(139,115,85,0.25),
-                0_0_26px_rgba(139,115,85,0.18),
-                0_0_52px_rgba(139,115,85,0.12)
-              ]
-            "
-            tabIndex={0}
-            aria-label="Main heading: Meet someone who truly understands"
-          >
-            Meet someone who truly understands
-          </h2>
+        <h4
+  id="guide-heading"
+  className="
+    font-serif
+    text-6xl sm:text-5xl
+    text-[#3A2E1F]
+    font-semibold
+    drop-shadow-[0_2px_4px_rgba(139,115,85,0.25)]
+    [text-shadow:
+      0_0_12px_rgba(139,115,85,0.25),
+      0_0_26px_rgba(139,115,85,0.18),
+      0_0_52px_rgba(139,115,85,0.12)
+    ]
+  "
+  tabIndex={0}
+  aria-label="Main heading: Meet someone who truly understands"
+>
+  Meet someone who truly understands
+</h4>
+
         </motion.div>
 
         {/* ===== ABOUT SECTION ===== */}
@@ -321,17 +322,24 @@ export default function Guide() {
                 }
               }}
             >
-              <h3
-                className="
-                  text-xl
-                  font-semibold
-                  text-[#8B7355]
-                  drop-shadow-[0_1px_2px_rgba(139,115,85,0.25)]
-                "
-                aria-label={`Pillar ${index + 1}: ${pillar.title}`}
-              >
-                {pillar.title}
-              </h3>
+             <h4
+  className="
+    font-serif
+    text-3xl sm:text-4xl
+    text-[#3A2E1F]
+    mb-10
+    font-semibold
+    drop-shadow-[0_2px_4px_rgba(139,115,85,0.25)]
+    [text-shadow:
+      0_0_10px_rgba(139,115,85,0.25),
+      0_0_22px_rgba(139,115,85,0.18),
+      0_0_44px_rgba(139,115,85,0.12)
+    ]
+  "
+>
+  {pillar.title}
+</h4>
+
               <p 
                 className="text-[#5D4C3B] drop-shadow-[0_1px_3px_rgba(255,255,255,0.5)]"
                 aria-label={`Description: ${pillar.desc}`}

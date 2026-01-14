@@ -128,25 +128,26 @@ export default function Specialisation() {
             role="presentation"
           />
 
-          <h2
-            id="specialisations-heading"
-            className="
-              font-serif
-              text-3xl md:text-4xl
-              text-[#3A2E1F]
-              whitespace-nowrap
-              font-semibold
-              drop-shadow-[0_2px_4px_rgba(139,115,85,0.25)]
-              [text-shadow:
-                0_0_10px_rgba(139,115,85,0.22),
-                0_0_22px_rgba(139,115,85,0.14)
-              ]
-            "
-            tabIndex={0}
-            aria-label="Areas of specialisation"
-          >
-            Specializing In
-          </h2>
+      <h4
+  id="specialisations-heading"
+  className="
+    font-serif
+    text-6xl sm:text-5xl
+    text-[#3A2E1F]
+    whitespace-nowrap
+    font-semibold
+    drop-shadow-[0_2px_4px_rgba(139,115,85,0.25)]
+    [text-shadow:
+      0_0_10px_rgba(139,115,85,0.22),
+      0_0_22px_rgba(139,115,85,0.14)
+    ]
+  "
+  tabIndex={0}
+  aria-label="Areas of specialisation"
+>
+  Specializing In
+</h4>
+
 
           <div 
             className="hidden sm:block flex-1 h-px bg-[#D8CFC3] drop-shadow-[0_1px_2px_rgba(139,115,85,0.25)]"
