@@ -438,7 +438,7 @@ export default function Questionnaire() {
                     Submitting...
                   </span>
                 ) : (
-                  "Continue"
+                  "Submit"
                 )}
               </button>
             </div>

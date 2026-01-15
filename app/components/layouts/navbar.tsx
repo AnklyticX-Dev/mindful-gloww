@@ -37,7 +37,7 @@ export default function Navbar() {
 
   const navItems = [
     { id: "services", label: "Services" },
-    { id: "specialisation", label: "Specialisation" },
+    { id: "specialisation", label: "Specialisation", href: "specialization" },
     { id: "how-it-works", label: "How it works" },
     { id: "about", label: "About" },
   ];

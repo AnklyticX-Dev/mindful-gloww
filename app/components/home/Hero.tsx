@@ -104,7 +104,7 @@ export default function Hero() {
         >
           If you're feeling emotionally drained, confused, or stuck,
           <span className="sr-only"> Mindful Gloww </span>
-          is here to guide you towards healing.
+         mindful gloww is here to guide you towards healing.
         </motion.p>
 
         {/* ================= CTA ================= */}

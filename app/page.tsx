@@ -14,11 +14,15 @@ export default function Home() {
     <main>
       <Hero />
       <Problem />
+        <Form />
       <Empathy />
-      <Form />
+    
       <Guide />
       {/* <Services /> */}
-      <Specialisation />
+      <div id="specialization">
+ <Specialisation />
+      </div>
+     
       <Plan />
       <CTA />
       <Questionnaire />

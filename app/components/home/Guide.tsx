@@ -7,11 +7,11 @@ export default function Guide() {
   const pillars = [
     { title: "Compassion", desc: "Gentle understanding without judgment" },
     { title: "Clarity", desc: "Clear insights and practical guidance" },
-    { title: "Emotional Safety", desc: "A secure space for healing" }
+    { title: "Emotional Safety", desc: "A secure space for healing" },
   ];
 
   return (
-    <section 
+    <section
       id="guide"
       className="relative overflow-hidden bg-[#F6F2EC]"
       aria-labelledby="guide-heading"
@@ -19,7 +19,7 @@ export default function Guide() {
       aria-label="Guide and personal experience section"
     >
       {/* ================= TOP WAVE ================= */}
-      <div 
+      <div
         className="absolute top-0 left-0 w-full z-20 pointer-events-none"
         aria-hidden="true"
         role="presentation"
@@ -48,7 +48,7 @@ export default function Guide() {
       </div>
 
       {/* ================= BACKGROUND IMAGE ================= */}
-      <div 
+      <div
         className="absolute inset-0 z-0"
         aria-hidden="true"
         role="presentation"
@@ -64,7 +64,7 @@ export default function Guide() {
         />
 
         {/* Soft contrast wash (same palette) */}
-        <div 
+        <div
           className="absolute inset-0 bg-[#F6F2EC]/55 md:bg-[#F6F2EC]/40"
           aria-hidden="true"
           role="presentation"
@@ -72,7 +72,7 @@ export default function Guide() {
       </div>
 
       {/* ================= SUBTLE GRID ================= */}
-      <div 
+      <div
         className="absolute inset-0 pointer-events-none z-10"
         aria-hidden="true"
         role="presentation"
@@ -99,7 +99,7 @@ export default function Guide() {
       </div>
 
       {/* ================= SOFT BLOBS ================= */}
-      <div 
+      <div
         className="absolute inset-0 overflow-hidden pointer-events-none z-10"
         aria-hidden="true"
         role="presentation"
@@ -130,7 +130,7 @@ export default function Guide() {
           role="banner"
           aria-label="Section introduction"
         >
-          <div 
+          <div
             className="text-[#8B7355] text-sm font-semibold tracking-widest uppercase mb-4"
             tabIndex={0}
             aria-label="Category: Personal Guidance"
@@ -138,9 +138,9 @@ export default function Guide() {
             Personal Guidance
           </div>
 
-        <h4
-  id="guide-heading"
-  className="
+          <h4
+            id="guide-heading"
+            className="
     font-serif
     lg:text-6xl sm:text-5xl
     text-[#3A2E1F]
@@ -152,16 +152,15 @@ export default function Guide() {
       0_0_52px_rgba(139,115,85,0.12)
     ]
   "
-  tabIndex={0}
-  aria-label="Main heading: Meet someone who truly understands"
->
-  Meet someone who truly understands
-</h4>
-
+            tabIndex={0}
+            aria-label="Main heading: Meet someone who truly understands"
+          >
+            Meet someone who truly understands
+          </h4>
         </motion.div>
 
         {/* ===== ABOUT SECTION ===== */}
-        <div 
+        <div
           className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start"
           role="article"
           aria-label="Personal story and background"
@@ -169,7 +168,7 @@ export default function Guide() {
           <div className="relative max-w-md mx-auto">
             <figure>
               <Image
-                src="/ruchi.jpeg"
+                src="/ruchi1.jpeg"
                 alt="Ruchi, Founder of Mindful Gloww - A compassionate guide with lived experience in healing from trauma"
                 width={480}
                 height={620}
@@ -178,72 +177,77 @@ export default function Guide() {
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
               <figcaption className="sr-only">
-                Ruchi, Founder of Mindful Gloww, with compassionate presence and understanding gaze
+                Ruchi, Founder of Mindful Gloww, with compassionate presence and
+                understanding gaze
               </figcaption>
             </figure>
           </div>
+<div
+  className="text-[#5D4C3B] space-y-6 text-lg leading-relaxed"
+  role="article"
+  aria-label="Personal journey narrative"
+>
+  <p
+    className="drop-shadow-[0_1px_3px_rgba(255,255,255,0.55)]"
+    tabIndex={0}
+  >
+    For a long time, my life was shaped by trauma—childhood sexual abuse and a
+    marriage to a narcissist that lasted 24 years. I know what it feels like to
+    lose yourself, to silence your needs, and to stay because leaving feels more
+    terrifying than staying.
+  </p>
 
-          <div 
-            className="text-[#5D4C3B] space-y-6 text-lg leading-relaxed"
-            role="article"
-            aria-label="Personal journey narrative"
-          >
-            <p 
-              className="drop-shadow-[0_1px_3px_rgba(255,255,255,0.55)]"
-              tabIndex={0}
-            >
-              For a long time, my life was shaped by trauma—childhood sexual
-              abuse and a marriage to a narcissist that lasted 24 years.
-            </p>
+  <p
+    className="drop-shadow-[0_1px_3px_rgba(255,255,255,0.55)]"
+    tabIndex={0}
+  >
+    Walking away from that life was the hardest thing I have ever done—but it
+    was also the beginning of my healing.
+  </p>
 
-            <p 
-              className="drop-shadow-[0_1px_3px_rgba(255,255,255,0.55)]"
-              tabIndex={0}
-            >
-              Walking away from that life was the hardest thing I have ever
-              done—but it was also the beginning of my healing.
-            </p>
+  <p
+    className="drop-shadow-[0_1px_3px_rgba(255,255,255,0.55)]"
+    tabIndex={0}
+  >
+    Today, I help others who feel stuck, exhausted, and emotionally overwhelmed
+    find their way back to themselves. I believe healing happens when we feel
+    seen, believed, and safe enough to tell the truth—without shame or judgment.
+  </p>
 
-            <p 
-              className="drop-shadow-[0_1px_3px_rgba(255,255,255,0.55)]"
-              tabIndex={0}
-            >
-              Today, I help others who feel stuck, exhausted, and emotionally
-              overwhelmed find their way back to themselves.
-            </p>
+  <p
+    className="drop-shadow-[0_1px_3px_rgba(255,255,255,0.55)]"
+    tabIndex={0}
+  >
+    My work is rooted in empathy, lived experience, and a deep understanding of
+    trauma bonds, abuse dynamics, and emotional recovery. I don’t see you as a
+    diagnosis. I see you as a human who adapted to survive—and now deserves
+    peace.
+  </p>
 
-            <p 
-              className="drop-shadow-[0_1px_3px_rgba(255,255,255,0.55)]"
-              tabIndex={0}
-            >
-              My work is rooted in empathy, lived experience, and a deep
-              understanding of trauma bonds, abuse dynamics, and emotional
-              recovery.
-            </p>
+  <blockquote
+    className="
+      font-semibold
+      text-[#3A2E1F]
+      drop-shadow-[0_2px_6px_rgba(139,115,85,0.3)]
+      [text-shadow:
+        0_0_10px_rgba(139,115,85,0.25),
+        0_0_22px_rgba(139,115,85,0.15)
+      ]
+      pl-6 border-l-4 border-[#8B7355]
+    "
+    tabIndex={0}
+    aria-label="Message of hope"
+  >
+    <p>
+      You don’t have to do this alone anymore.
+      <br />
+      Your story matters.
+      <br />
+      And it’s not too late to begin again.
+    </p>
+  </blockquote>
+</div>
 
-            <blockquote
-              className="
-                font-semibold
-                text-[#3A2E1F]
-                drop-shadow-[0_2px_6px_rgba(139,115,85,0.3)]
-                [text-shadow:
-                  0_0_10px_rgba(139,115,85,0.25),
-                  0_0_22px_rgba(139,115,85,0.15)
-                ]
-                pl-6 border-l-4 border-[#8B7355]
-              "
-              tabIndex={0}
-              aria-label="Message of hope"
-            >
-              <p>
-                You don't have to do this alone anymore.
-                <br />
-                Your story matters.
-                <br />
-                And it's not too late to begin again.
-              </p>
-            </blockquote>
-          </div>
         </div>
 
         {/* ===== SUPPORTING TEXT ===== */}
@@ -297,33 +301,37 @@ export default function Guide() {
             >
               lived experience
             </span>
-            — understanding the confusion, the self-blame, and the slow rebuilding
-            of trust in yourself.
+            — understanding the confusion, the self-blame, and the slow
+            rebuilding of trust in yourself.
           </p>
         </div>
 
         {/* ===== PILLARS ===== */}
-        <div 
+        <div
           className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center"
           role="list"
           aria-label="Core pillars of our approach"
         >
           {pillars.map((pillar, index) => (
-            <div 
-              key={pillar.title} 
+            <div
+              key={pillar.title}
               className="space-y-3"
               role="listitem"
               tabIndex={0}
               onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
+                if (e.key === "Enter" || e.key === " ") {
                   e.preventDefault();
                   const nextIndex = index < pillars.length - 1 ? index + 1 : 0;
-                  (document.querySelectorAll('[role="listitem"]')[nextIndex] as HTMLElement)?.focus();
+                  (
+                    document.querySelectorAll('[role="listitem"]')[
+                      nextIndex
+                    ] as HTMLElement
+                  )?.focus();
                 }
               }}
             >
-             <h4
-  className="
+              <h4
+                className="
     font-serif
     text-3xl sm:text-4xl
     text-[#3A2E1F]
@@ -336,11 +344,11 @@ export default function Guide() {
       0_0_44px_rgba(139,115,85,0.12)
     ]
   "
->
-  {pillar.title}
-</h4>
+              >
+                {pillar.title}
+              </h4>
 
-              <p 
+              <p
                 className="text-[#5D4C3B] drop-shadow-[0_1px_3px_rgba(255,255,255,0.5)]"
                 aria-label={`Description: ${pillar.desc}`}
               >
@@ -385,15 +393,15 @@ export default function Guide() {
         {/* ===== HIDDEN CONTEXT FOR SCREEN READERS ===== */}
         <div className="sr-only" aria-live="polite">
           <p>
-            This section shares the personal journey of the founder who has lived experience 
-            with trauma, abuse recovery, and healing. The approach is built on compassion, 
-            clarity, and emotional safety.
+            This section shares the personal journey of the founder who has
+            lived experience with trauma, abuse recovery, and healing. The
+            approach is built on compassion, clarity, and emotional safety.
           </p>
         </div>
       </div>
 
       {/* ================= BOTTOM WAVE ================= */}
-      <div 
+      <div
         className="absolute bottom-0 left-0 w-full z-20 pointer-events-none"
         aria-hidden="true"
         role="presentation"
